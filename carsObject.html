@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>Cars Object</title>
+        <script>
+            function Cars(brand_name,model_name,price){
+                this.brand_name=brand_name;
+                this.model_name=model_name;
+                this.price=price;
+                this.autoPilot=function(){
+                    return "This is auto pilot car";
+                }
+            }
+            var car1 = new Cars("Tesla","Model 3",7500000);
+            var car2 = new Cars("Toyata","Fortuner",2700000);
+            document.write(car1.autoPilot() );
+        </script>
+    </head>
+</html>

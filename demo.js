@@ -1,1 +1,2 @@
-document.write("Hello World from extrenal JS file.")
+document.write("Hello World from extrenal JS file.");
+alert("Hello");
