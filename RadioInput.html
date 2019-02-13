@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>DOM Manupulation</title>
+        <script>
+            function checkRadioValue(){
+                let rd1=document.getElementById("input1");
+                let rd2=document.getElementById("input2");
+                if(rd1.checked==true)
+                    alert("Option choose value : "+rd1.value);
+                else if(rd2.checked==true)
+                    alert("Option choose value : "+rd2.value);
+                else
+                    alert("No value choosed");
+            }
+        </script>
+    </head>
+    <body>
+        <input id="input1" type="radio" name="gender" value="Male">Male</input><br>
+        <input id="input2" type="radio" name="gender" value="Female">Female</input><br>
+        <button onclick="checkRadioValue()">Click Me</button>
+    </body>
+</html>

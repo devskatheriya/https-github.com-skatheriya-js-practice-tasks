@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>
+            Regular Expression
+            <script>
+            function matchPattern(){
+                var text = document.getElementById("input").value;
+                 var regx = /^[5-9][a-z]{8}0$/;
+                if(regx.text(text)){
+                    document.getElementById("inputLabel").innerHTML="Matched";
+                    document.getElementById("inputLabel").style.visibility="visible";
+                    document.getElementById("inputLabel").style.color="green";
+                }else{
+                    document.getElementById("inputLabel").innerHTML="Not Matched";
+                    document.getElementById("inputLabel").style.visibility="visible";
+                    document.getElementById("inputLabel").style.color="red";
+                }
+            }
+            </script>
+        </title>
+    </head>
+    <body>
+        <input type="text" id="input" placeholder="Enter Pattern">
+        <label id="inputLabel" style="color:red; visibility: hidden;">Match Failed</label>
+        <button id="btn" onclick="matchPattern()">Check</button>
+    </body>
+</html>

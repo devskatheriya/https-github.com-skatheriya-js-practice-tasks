@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>DOM Manupulation</title>
+        <script>
+            function checkCourse(){
+                let cousre = document.getElementById("courseID");
+                alert(cousre.value);
+            }
+        </script>
+    </head>
+    <body>
+        <select name="singleCourse" id="courseID">
+            <option value="C">C</option>
+            <option value="Java">Java</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="PHP">PHP</option>
+        </select>
+        <button onclick="checkCourse()">Click Me</button>
+    </body>
+</html>

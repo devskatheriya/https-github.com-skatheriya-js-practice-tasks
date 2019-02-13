@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>DOM Manupulation</title>
+        <script>
+            function takeInput(){
+                let username = document.getElementById("input1").value;
+                var password = document.getElementById("input2").value;
+                alert((username==password)?"It macthed":"It doesn't match");
+            }
+        </script>
+    </head>
+    <body>  
+        <input type="text" id="input1" placeholder="Username">
+        <br>
+        <input type="password" id="input2" placeholder="Password">
+        <br>
+        <button onclick="takeInput()">Click Me</button>
+    </body>
+</html>

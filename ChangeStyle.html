@@ -1,0 +1,21 @@
+<html>
+
+<head>
+    <title>DOM Manupulation</title>
+    <script>
+        function changeStyle() {
+            var para = document.getElementsByTagName("p");
+            para[1].style.color="red";
+        }
+    </script>
+</head>
+
+<body>
+    <p>This is paragraph 1</p>
+    <p>This is paragraph 2</p>
+    <p>This is paragraph 3</p>
+    <p>This is paragraph 4</p>
+    <button onclick="changeStyle()">Click Me</button>
+</body>
+
+</html>
