@@ -1,0 +1,128 @@
+<html>
+
+<head>
+    <title>Day From Date</title>
+    <script>
+        var date = prompt("Enter the Date :", 31);
+        if (date > 0) {
+            var month = prompt("Enter the Month", 12);
+            if (month > 0) {
+                var year = prompt("Enter the Year", 2019);
+                if (year > 0) {
+                    if (checkMonth() && checkDate()) {
+                        let baseDate = new Date("01/01/1970");
+                        let newDate = new Date(month + "/" + date + "/" + year);
+
+
+                        var timeDifference = Math.abs(newDate.getTime() - baseDate.getTime());
+                        var dayNo = ((timeDifference / (1000 * 24 * 60 * 60)) % 7);
+
+                        if (!(newDate.getFullYear() >= baseDate.getFullYear())) {
+                            dayNo = 7 - dayNo;
+                        }
+
+                        var day;
+                        switch (dayNo) {
+                            case 0: day = "Thursday";
+                                break;
+                            case 1: day = "Friday";
+                                break;
+                            case 2: day = "Saturday";
+                                break;
+                            case 3: day = "Sunday";
+                                break;
+                            case 4: day = "Monday";
+                                break;
+                            case 5: day = "Tuesday";
+                                break;
+                            case 6: day = "Wednesday";
+                                break;
+
+                        }
+                        alert("It's " + day + " !");
+                    } else {
+                        alert("Date Invalid");
+
+                    }
+
+                    function checkMonth() {
+                        if (month <= 12 && month > 0) { return true; }
+                        else {
+                            alert("Invalid Month");
+                            { return false; }
+                        }
+                    }
+                    function isLeapYear() {
+                        if (((year % 4) == 0) &&
+                            (!(year % 100) == 0) ||
+                            ((year % 400) == 0)) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+                    function checkDate() {
+                        var result;
+                        switch (+(month)) {
+                            case 1:
+                            case 3:
+                            case 5:
+                            case 7:
+                            case 8:
+                            case 10:
+                            case 12:
+                                if (date < 32 ) {
+                                    result = true;
+                                } else {
+                                    alert("Invalid Date");
+                                    result = false;
+                                }
+                                break;
+
+                            case 2:
+                                if (isLeapYear() && date <= 29) {
+                                    result = true;
+                                }
+                                else if (date <= 28) {
+                                    result = true;
+                                } else {
+                                    alert("Invalid Date");
+                                    result = false;
+                                }
+                                break;
+
+                            case 4:
+                            case 6:
+                            case 9:
+                            case 11:
+                                if (date <= 28) {
+                                    result = true;
+                                } else {
+                                    alert("Invalid Date");
+                                    result = false;
+                                }
+                                break;
+                            default:
+                                alert("Month should be less or equal to 13 and greater than 0");
+                        }
+
+                        return result;
+                    }
+                } else {
+                    alert("Year cannot be 0");
+                }
+            } else {
+                alert("Month cannot be 0");
+            }
+        } else {
+            alert("Date cannot be 0");
+        }
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

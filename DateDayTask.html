@@ -1,0 +1,104 @@
+<html>
+
+<head>
+    <title>Day From Date</title>
+    <script>
+        var date = prompt("Enter any Date :", "mm/dd/yyyy");
+
+        let newDate = new Date(date);
+        var result;
+        alert(newDate.getMonth());
+        switch (newDate.getMonth()) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                if (newDate.getDate() <= 31) result = true;
+                else result = false;
+                break;
+
+            case 2:
+                if (isLeapYear() && newDate.getDate() <= 29) result = true;
+                else if (newDate.getDate() <= 28) result = true;
+                else result = false;
+                break;
+
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                if (newDate.getDate() <= 28) result = true;
+                else result = false;
+                break;
+        }
+
+        if (checkDate() && checkMonth() && result == true) {
+            let baseDate = new Date("01/01/1970");
+
+            if (newDate.getFullYear() >= baseDate.getFullYear()) {
+                var timeDifference = Math.abs(newDate.getTime() - baseDate.getTime());
+                var dayNo = ((timeDifference / (1000 * 24 * 60 * 60)) % 7);
+            } else {
+                var timeDifference = Math.abs(baseDate.getTime() - newDate.getTime());
+                var dayNo = ((timeDifference / (1000 * 24 * 60 * 60)) % 7);
+                dayNo = 7 - dayNo;
+            }
+
+            var day;
+            switch (dayNo) {
+                case 0: day = "Thursday";
+                    break;
+                case 1: day = "Friday";
+                    break;
+                case 2: day = "Saturday";
+                    break;
+                case 3: day = "Sunday";
+                    break;
+                case 4: day = "Monday";
+                    break;
+                case 5: day = "Tuesday";
+                    break;
+                case 6: day = "Wednesday";
+                    break;
+
+            }
+            alert("It's " + day + " !");
+        } else {
+            alert("Invalid Full Date");
+        }
+
+        function checkMonth() {
+            if (newDate.getMonth() < 12 && newDate.getMonth() >= 0) return true;
+            else {
+                alert("Invalid Month");
+                return false;
+            }
+        }
+        function checkDate() {
+            if (newDate.getDate() < 32 && newDate.getDate() > 0) return true;
+            else {
+                alert("Invalid Date");
+                return false;
+            }
+        }
+        function isLeapYear() {
+            if (((newDate.getFullYear() % 4) == 0) &&
+                (!(newDate.getFullYear() % 100) == 0) ||
+                ((newDate.getFullYear() % 400) == 0)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
