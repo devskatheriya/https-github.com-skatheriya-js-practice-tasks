@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Camelize Text</title>
+        <script>
+            // function camelize(str){
+            //     strArr = str.split('-');
+            //     str = strArr[0];
+            //     for(let i=1;i<strArr.length;i++){
+            //         str= str + firstCapital(strArr[i]);
+            //     }
+            //     return str;
+
+            // };
+            // function firstCapital(str){
+            //     return str = str[0].toUpperCase() + str.slice(1); 
+            // };
+            function camelize(str){
+                return str
+                .split('-')
+                .map( (word,index) => index==0 ? word : word[0].toUpperCase() + word.slice(1) )
+                .join('');
+            }
+    
+        </script>
+    </head>
+</html>

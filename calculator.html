@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <title>Calculator</title>
+    <script>
+        let calculator = {
+            read() {
+                this.value1 = +prompt('Enter value1', 0);
+                this.value2 = +prompt('Enter value2', 0);
+            },
+            sum() { return this.value1 + this.value2; },
+            mul() { return this.value1 * this.value2; }
+        };
+        calculator.read();
+        console.log(calculator.sum());
+        alert(calculator.sum());
+        console.log(calculator.mul());
+        alert(calculator.mul());
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

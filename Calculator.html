@@ -1,0 +1,29 @@
+<html>
+
+<head>
+    <title>Calculator</title>
+    <script>
+        function Calculator(){
+            this.read = function() {
+                this.value1= +prompt("Enter Value1",0);
+                this.value2= +prompt("Enter Value2",0);
+            };
+            this.sum = function(){
+                return this.value1+this.value2;
+            };
+            this.mul = function(){
+                return this.value1*this.value2;
+            };
+        };
+        let calc = new Calculator();
+        calc.read();
+        alert("sum is :- "+calc.sum());
+        alert("multiply is :- "+calc.mul());
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

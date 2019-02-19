@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <title>Accumulator</title>
+    <script>
+        function Accumulator(startingValue) {
+            this.value = startingValue,
+
+                
+                this.read = function () {
+                    this.value += +prompt("Enter value", 0);
+                    console.log("hello2");
+                },
+                this.read = function () {
+                    let value1 = +prompt("Enter value", 0);
+                    this.value = this.value + value1;
+                    console.log("hello1");
+                };
+        };
+        let accumulator = new Accumulator(1);
+        console.log(accumulator.value);
+        accumulator.read();
+        console.log(accumulator.value);
+        accumulator.read();
+        alert(accumulator.value);
+        console.log(accumulator.value);
+    </script>
+</head>
+
+</html>

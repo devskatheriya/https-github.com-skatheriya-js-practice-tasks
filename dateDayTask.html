@@ -3,11 +3,12 @@
 <head>
     <title>Day From Date</title>
     <script>
-        var date = prompt("Enter the Date :", 31);
+        var today = new Date();
+        var date = prompt("Enter the Date :", today.getDate());
         if (date > 0) {
-            var month = prompt("Enter the Month", 12);
+            var month = prompt("Enter the Month", today.getMonth() + 1);
             if (month > 0) {
-                var year = prompt("Enter the Year", 2019);
+                var year = prompt("Enter the Year", today.getFullYear());
                 if (year > 0) {
                     if (checkMonth() && checkDate()) {
                         let baseDate = new Date("01/01/1970");
@@ -53,9 +54,9 @@
                         }
                     }
                     function isLeapYear() {
-                        if (((year % 4) == 0) &&
-                            (!(year % 100) == 0) ||
-                            ((year % 400) == 0)) {
+                        if ( ( ((year % 4) == 0) &&
+                            (!(year % 100) == 0) ) ||
+                            ((year % 400) == 0) ) {
                             return true;
                         } else {
                             return false;
@@ -71,7 +72,7 @@
                             case 8:
                             case 10:
                             case 12:
-                                if (date < 32 ) {
+                                if (date < 32) {
                                     result = true;
                                 } else {
                                     alert("Invalid Date");
@@ -95,7 +96,7 @@
                             case 6:
                             case 9:
                             case 11:
-                                if (date <= 28) {
+                                if (date <= 30) {
                                     result = true;
                                 } else {
                                     alert("Invalid Date");
