@@ -1,0 +1,60 @@
+<html>
+
+<head>
+    <title>Eight Queen Problem</title>
+    <script>
+        var board = [8][8];
+        function EightQueens(strArr) {
+            for (let i = 0; i < strArr.length; i++) {
+
+                let x = strArr[i][1];
+                let y = strArr[i][3];
+                if (!(checkConfilt(x, y))) return false;
+                else board[x][y] = 'Q';
+            }
+            return true;
+
+        };
+
+        function checkConfilt(i, j) {
+
+            //first diagonal
+            for (let x = i - 1, y = j - 1; x > 0, y > 0; x-- , y--) {
+                if (board[x][y] == 'Q') return false;
+            }
+
+            //second diagonal
+            for (let x = i - 1, y = j + 1; x > 0, y <= 8; x-- , y++) {
+                if (board[x][y] == 'Q') return false;
+            }
+
+            //third diagonal
+            for (let x = i + 1, y = j + 1; x <= 8, y <= 8; x++ , y++) {
+                if (board[x][y] == 'Q') return false;
+            }
+
+            //third diagonal
+            for (let x = i + 1, y = j - 1; x <= 8, y > 0; x++ , y--) {
+                if (board[x][y] == 'Q') return false;
+            }
+
+            //vertical plus
+            for (let x = 1, y = j; x <= 8; x++) {
+                if (board[x][y] == 'Q') { return false; }
+            }
+
+            //horizontal plus
+            for (let x = i, y = 1; y <= 8; y++) {
+                if (board[x][y] == 'Q') return false;
+            }
+
+            return true;
+        };
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <title>Pentagonal Number</title>
+    <script>
+        let num = +prompt("Enter no. of iteration");
+
+        if (num == 0) {
+            alert("Zero Not Allowed");
+        } else {
+            if (num < 0) {
+                alert("Negative No. Not Allowed");
+            } else {
+                alert(PentagonalNumber(num))
+            }
+        }
+
+        function PentagonalNumber(num) {
+            let total = 1;
+            for (let i = 0; i < num; i++) {
+                total = total + (i * 5);
+            }
+            return total;
+        };
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
