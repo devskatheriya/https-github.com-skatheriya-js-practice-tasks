@@ -110,9 +110,9 @@ function circle() {
         // document.getElementById("choiceId").style.visibility="visible";
         // document.getElementById("choiceValueId").innerText=newCircle.area().toFixed(2);
         // document.getElementById("choiceValueId").style.visibility="visible";
-            break;
+            return;
         case 2: alert("Perimeter : " + newCircle.perimeter().toFixed(2));
-            break;
+            return;
     }
 }
 function rectangle() {
