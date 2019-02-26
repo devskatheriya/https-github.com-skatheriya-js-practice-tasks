@@ -1,1 +1,15 @@
-https://www.linkedin.com/uas/oauth2/authorization?response_type=code&client_id=75k3gdbsqbrx1i&scope=r_basicprofile&state=dvchdv&redirect_uri=https://com.mentorz.linkedin.oauth/oauth
+function circle(radius)
+{
+    this.radius = radius;
+  // area method
+    this.area = function () 
+    {
+        return Math.PI * this.radius * this.radius;
+    };
+  // perimeter method
+    this.perimeter = function ()
+    {
+        return 2*Math.PI*this.radius;
+    };
+}
+var c = new circle(3);
