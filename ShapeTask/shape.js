@@ -174,5 +174,4 @@ function askShapeChoice() {
         }
     } while (!sub_choice);
 }
-var circle = new Circle(5);
-console.log(circle._radius);
+askShape();
