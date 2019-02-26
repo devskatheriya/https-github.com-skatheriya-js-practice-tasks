@@ -103,13 +103,13 @@ function circle() {
     let newCircle = new Circle(radius);
     let sub_choice = askChoice();
     switch (sub_choice) {
-        case 1: alert("Area : " + newCircle.area().toFixed(2));
-        document.getElementById("shapeId").innerText="Circle";
-        document.getElementById("shapeId").style.visibility="visible";
-        document.getElementById("choiceId").innerText="Area";
-        document.getElementById("choiceId").style.visibility="visible";
-        document.getElementById("choiceValueId").innerText=newCircle.area().toFixed(2);
-        document.getElementById("choiceValueId").style.visibility="visible";
+            case 1: alert("Area : " + newCircle.area().toFixed(2));
+        // document.getElementById("shapeId").innerText="Circle";
+        // document.getElementById("shapeId").style.visibility="visible";
+        // document.getElementById("choiceId").innerText="Area";
+        // document.getElementById("choiceId").style.visibility="visible";
+        // document.getElementById("choiceValueId").innerText=newCircle.area().toFixed(2);
+        // document.getElementById("choiceValueId").style.visibility="visible";
             break;
         case 2: alert("Perimeter : " + newCircle.perimeter().toFixed(2));
             break;
