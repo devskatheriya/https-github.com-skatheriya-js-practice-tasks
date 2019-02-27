@@ -1,9 +1,10 @@
-<html>Lint
+<html>
 
 <head>
     <title>Eight Queens Problem</title>
     <script>
         var board = [];
+        EightQueens([[2, 1], [4, 2], [6, 3], [8, 4], [3, 5], [1, 6], [7, 7], [5, 8]]);
         function EightQueens(arr) {
             fillBoard(board);
             for (let i = 0; i < arr.length; i++) board[arr[i][0]][arr[i][1]] = 'Q';
@@ -45,6 +46,19 @@
         }
 
     </script>
-</head>
+</head><body>
+    <p>Output in console.</p>
+    <pre>  
+         You can directly call 
+          function <strong style="color:red">EightQueens()</strong> 
+          and pass a 
+          2D array
+          as arrguments.
+        
+          Like :- 
+             <b>EightQueens([[2, 1], [4, 2], [6, 3], [8, 4], [3, 5], [1, 6], [7, 7], [5, 8]]);</b> 
+            
+            </pre>
+</body>
 
 </html>
