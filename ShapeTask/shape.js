@@ -43,8 +43,8 @@ class Triangle extends Shape {
         this._side_c = side_c;
     }
     area() {
-        let s = (this._side_a + this._side_b + this._side_c);
-        let area = (s * (s - this._side_a) * (s - this._side_b) * (s - this._side_c));
+        let semi_perimeter = (this._side_a + this._side_b + this._side_c) / 2;
+        let area = (semi_perimeter * (semi_perimeter - this._side_a) * (semi_perimeter - this._side_b) * (semi_perimeter - this._side_c));
         return Math.sqrt(area);
     }
     perimeter() {
@@ -97,7 +97,7 @@ function askShape() {
                 do {
                     square();
                     do {
-                        var repeat_choice = prompt("You want to continue with same Shape.\nChoose [Y/N]", 'Y');
+                        var repeat_choice = prompt("Do you wish to continue with the same shape ?.\nChoose [Y/N]", 'Y');
                     } while (!(repeat_choice.toLowerCase() == 'y' || repeat_choice.toLowerCase() == 'n' || alert("Valid Input only")))
                 } while (!(repeat_choice.toLowerCase() == 'n'))
                 break;
@@ -106,7 +106,7 @@ function askShape() {
                 break;
         }
         do {
-            var choice = prompt("You want to continue with Another Shape.\n Choose [Y/N]", 'Y');
+            var choice = prompt("Do you wish to continue with previous menu?.\n Choose [Y/N]", 'Y');
         } while (!(choice.toLowerCase() == 'y' || choice.toLowerCase() == 'n' || alert("Valid Input only")))
     } while (!(choice.toLowerCase() == 'n'))
 }
@@ -163,21 +163,24 @@ function square() {
     }
 }
 function triangle() {
-
     do {
-        var side_a = +prompt("Enter side a of Triangle", 1);
-    } while (((side_a < 1) && (alert("only positive no. allowed") || true))
-        || (isNaN(side_a) && (alert("Only no. allowed") || true)))
+        do {
+            var side_a = +prompt("Enter side a of Triangle", 1);
+        } while (((side_a < 1) && (alert("only positive no. allowed") || true))
+            || (isNaN(side_a) && (alert("Only no. allowed") || true)))
 
-    do {
-        var side_b = +prompt("Enter side b of Triangle", 1);
-    } while (((side_b < 1) && (alert("only positive no. allowed") || true))
-        || (isNaN(side_b) && (alert("Only no. allowed") || true)))
+        do {
+            var side_b = +prompt("Enter side b of Triangle", 1);
+        } while (((side_b < 1) && (alert("only positive no. allowed") || true))
+            || (isNaN(side_b) && (alert("Only no. allowed") || true)))
 
-    do {
-        var side_c = +prompt("Enter side c of Triangle", 1);
-    } while (((side_c < 1) && (alert("only positive no. allowed") || true))
-        || (isNaN(side_c) && (alert("Only no. allowed") || true)))
+        do {
+            var side_c = +prompt("Enter side c of Triangle", 1);
+        } while (((side_c < 1) && (alert("only positive no. allowed") || true))
+            || (isNaN(side_c) && (alert("Only no. allowed") || true)))
+
+    } while ((side_a + side_b <= side_c || side_a + side_c <= side_b || side_b + side_c <= side_a)
+        && (alert("Following condition sholud be follow\n a + b > c or \n b + c > a or \n a + c > b \n where :- a,b and c are sides of traingle.") || true))
 
     let newTriangle = new Triangle(side_a, side_b, side_c);
     let sub_choice = askChoice();
