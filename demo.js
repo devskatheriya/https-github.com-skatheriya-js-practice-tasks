@@ -1,15 +1,7 @@
-function circle(radius)
-{
-    this.radius = radius;
-  // area method
-    this.area = function () 
-    {
-        return Math.PI * this.radius * this.radius;
-    };
-  // perimeter method
-    this.perimeter = function ()
-    {
-        return 2*Math.PI*this.radius;
-    };
+var count = 0;
+for (var i = 4000; i > 0; i /= 2) {
+  for (var j = 0; j < i; j++) {
+    count++;
+  }
 }
-var c = new circle(3);
+console.log(count);

@@ -68,56 +68,82 @@ function askShape() {
     do {
         var shape_choice = askShapeChoice();
         switch (shape_choice) {
-            case 1: do {
-                circle();
-                var repeat_choice = prompt("You want to continue with same Shape.\nChoose [Y/N]", 'Y');
-            } while (repeat_choice == 'Y' || repeat_choice == 'y')
+            case 1:
+                do {
+                    circle();
+                    do {
+                        var repeat_choice = prompt("You want to continue with same Shape.\nChoose [Y/N]", 'Y');
+                    } while (!(repeat_choice.toLowerCase() == 'y' || repeat_choice.toLowerCase() == 'n' || alert("Valid Input only")))
+                } while (!(repeat_choice.toLowerCase() == 'n'))
                 break;
+
             case 2:
                 do {
                     rectangle();
-                    var repeat_choice = prompt("You want to continue with same Shape.\nChoose [Y/N]", 'Y');
-                } while (repeat_choice == 'Y' || repeat_choice == 'y')
+                    do {
+                        var repeat_choice = prompt("You want to continue with same Shape.\nChoose [Y/N]", 'Y');
+                    } while (!(repeat_choice.toLowerCase() == 'y' || repeat_choice.toLowerCase() == 'n' || alert("Valid Input only")))
+                } while (!(repeat_choice.toLowerCase() == 'n'))
                 break;
             case 3:
                 do {
                     triangle();
-                    var repeat_choice = prompt("You want to continue with same Shape.\nChoose [Y/N]", 'Y');
-                } while (repeat_choice == 'Y' || repeat_choice == 'y')
+                    do {
+                        var repeat_choice = prompt("You want to continue with same Shape.\nChoose [Y/N]", 'Y');
+                    } while (!(repeat_choice.toLowerCase() == 'y' || repeat_choice.toLowerCase() == 'n' || alert("Valid Input only")))
+                } while (!(repeat_choice.toLowerCase() == 'n'))
                 break;
             case 4:
                 do {
                     square();
-                    var repeat_choice = prompt("You want to continue with same Shape.\nChoose [Y/N]", 'Y');
-                } while (repeat_choice == 'Y' || repeat_choice == 'y')
+                    do {
+                        var repeat_choice = prompt("You want to continue with same Shape.\nChoose [Y/N]", 'Y');
+                    } while (!(repeat_choice.toLowerCase() == 'y' || repeat_choice.toLowerCase() == 'n' || alert("Valid Input only")))
+                } while (!(repeat_choice.toLowerCase() == 'n'))
                 break;
             default:
                 alert("Wrong input please Choose Right one");
                 break;
         }
-        var choice = prompt("You want to continue with Another Shape.\n Choose [Y/N]", 'Y');
-    } while (choice == 'Y' || choice == 'y');
+        do {
+            var choice = prompt("You want to continue with Another Shape.\n Choose [Y/N]", 'Y');
+        } while (!(choice.toLowerCase() == 'y' || choice.toLowerCase() == 'n' || alert("Valid Input only")))
+    } while (!(choice.toLowerCase() == 'n'))
 }
+
+
 function circle() {
-    let radius = +prompt("Enter Radius of circle", 1);
+    do {
+        var radius = +prompt("Enter Radius of circle", 1);
+    } while (((radius < 1) && (alert("only positive no. allowed") || true)) 
+                || (isNaN(radius) && (alert("Only no. allowed") || true)))
+                
     let newCircle = new Circle(radius);
     let sub_choice = askChoice();
     switch (sub_choice) {
-            case 1: alert("Area : " + newCircle.area().toFixed(2));
-        // document.getElementById("shapeId").innerText="Circle";
-        // document.getElementById("shapeId").style.visibility="visible";
-        // document.getElementById("choiceId").innerText="Area";
-        // document.getElementById("choiceId").style.visibility="visible";
-        // document.getElementById("choiceValueId").innerText=newCircle.area().toFixed(2);
-        // document.getElementById("choiceValueId").style.visibility="visible";
+        case 1: alert("Area : " + newCircle.area().toFixed(2));
+            // document.getElementById("shapeId").innerText="Circle";
+            // document.getElementById("shapeId").style.visibility="visible";
+            // document.getElementById("choiceId").innerText="Area";
+            // document.getElementById("choiceId").style.visibility="visible";
+            // document.getElementById("choiceValueId").innerText=newCircle.area().toFixed(2);
+            // document.getElementById("choiceValueId").style.visibility="visible";
             return;
         case 2: alert("Perimeter : " + newCircle.perimeter().toFixed(2));
             return;
     }
 }
 function rectangle() {
-    let length = +prompt("Enter Length of Rectangle", 1);
-    let width = +prompt("Enter Width of Rectangle", 1);
+    do {
+        var length = +prompt("Enter Length of Rectangle", 1);
+    } while (((length < 1) && (alert("only positive no. allowed") || true)) 
+    || (isNaN(length) && (alert("Only no. allowed") || true)))
+    
+    do {
+        var width = +prompt("Enter Width of Rectangle", 1);
+    } while (((width < 1) && (alert("only positive no. allowed") || true)) 
+    || (isNaN(width) && (alert("Only no. allowed") || true)))
+
     let newRectangle = new Rectangle(length, width);
     let sub_choice = askChoice();
     switch (sub_choice) {
@@ -128,7 +154,11 @@ function rectangle() {
     }
 }
 function square() {
-    let side = +prompt("Enter Side of Square", 1);
+    do {
+        var side = +prompt("Enter Side of Square", 1);
+    } while (((side < 1) && (alert("only positive no. allowed") || true)) 
+    || (isNaN(side) && (alert("Only no. allowed") || true)))
+
     var newSquare = new Square(side);
     let sub_choice = askChoice();
     switch (sub_choice) {
@@ -139,9 +169,22 @@ function square() {
     }
 }
 function triangle() {
-    let side_a = +prompt("Enter side a of Triangle", 1);
-    let side_b = +prompt("Enter side b of Triangle", 1);
-    let side_c = +prompt("Enter side c of Triangle", 1);
+
+    do {
+        var side_a = +prompt("Enter side a of Triangle", 1);
+    } while (((side_a < 1) && (alert("only positive no. allowed") || true)) 
+    || (isNaN(side_a) && (alert("Only no. allowed") || true)))
+    
+    do {
+        var side_b = +prompt("Enter side b of Triangle", 1);
+    } while (((side_b < 1) && (alert("only positive no. allowed") || true)) 
+    || (isNaN(side_b) && (alert("Only no. allowed") || true)))
+    
+    do {
+        var side_c = +prompt("Enter side c of Triangle", 1);
+    } while (((side_c < 1) && (alert("only positive no. allowed") || true)) 
+    || (isNaN(side_c) && (alert("Only no. allowed") || true)))
+
     let newTriangle = new Triangle(side_a, side_b, side_c);
     let sub_choice = askChoice();
     switch (sub_choice) {
