@@ -115,19 +115,13 @@ function askShape() {
 function circle() {
     do {
         var radius = +prompt("Enter Radius of circle", 1);
-    } while (((radius < 1) && (alert("only positive no. allowed") || true)) 
-                || (isNaN(radius) && (alert("Only no. allowed") || true)))
-                
+    } while (((radius < 1) && (alert("only positive no. allowed") || true))
+        || (isNaN(radius) && (alert("Only no. allowed") || true)))
+
     let newCircle = new Circle(radius);
     let sub_choice = askChoice();
     switch (sub_choice) {
         case 1: alert("Area : " + newCircle.area().toFixed(2));
-            // document.getElementById("shapeId").innerText="Circle";
-            // document.getElementById("shapeId").style.visibility="visible";
-            // document.getElementById("choiceId").innerText="Area";
-            // document.getElementById("choiceId").style.visibility="visible";
-            // document.getElementById("choiceValueId").innerText=newCircle.area().toFixed(2);
-            // document.getElementById("choiceValueId").style.visibility="visible";
             return;
         case 2: alert("Perimeter : " + newCircle.perimeter().toFixed(2));
             return;
@@ -136,13 +130,13 @@ function circle() {
 function rectangle() {
     do {
         var length = +prompt("Enter Length of Rectangle", 1);
-    } while (((length < 1) && (alert("only positive no. allowed") || true)) 
-    || (isNaN(length) && (alert("Only no. allowed") || true)))
-    
+    } while (((length < 1) && (alert("only positive no. allowed") || true))
+        || (isNaN(length) && (alert("Only no. allowed") || true)))
+
     do {
         var width = +prompt("Enter Width of Rectangle", 1);
-    } while (((width < 1) && (alert("only positive no. allowed") || true)) 
-    || (isNaN(width) && (alert("Only no. allowed") || true)))
+    } while (((width < 1) && (alert("only positive no. allowed") || true))
+        || (isNaN(width) && (alert("Only no. allowed") || true)))
 
     let newRectangle = new Rectangle(length, width);
     let sub_choice = askChoice();
@@ -156,8 +150,8 @@ function rectangle() {
 function square() {
     do {
         var side = +prompt("Enter Side of Square", 1);
-    } while (((side < 1) && (alert("only positive no. allowed") || true)) 
-    || (isNaN(side) && (alert("Only no. allowed") || true)))
+    } while (((side < 1) && (alert("only positive no. allowed") || true))
+        || (isNaN(side) && (alert("Only no. allowed") || true)))
 
     var newSquare = new Square(side);
     let sub_choice = askChoice();
@@ -172,18 +166,18 @@ function triangle() {
 
     do {
         var side_a = +prompt("Enter side a of Triangle", 1);
-    } while (((side_a < 1) && (alert("only positive no. allowed") || true)) 
-    || (isNaN(side_a) && (alert("Only no. allowed") || true)))
-    
+    } while (((side_a < 1) && (alert("only positive no. allowed") || true))
+        || (isNaN(side_a) && (alert("Only no. allowed") || true)))
+
     do {
         var side_b = +prompt("Enter side b of Triangle", 1);
-    } while (((side_b < 1) && (alert("only positive no. allowed") || true)) 
-    || (isNaN(side_b) && (alert("Only no. allowed") || true)))
-    
+    } while (((side_b < 1) && (alert("only positive no. allowed") || true))
+        || (isNaN(side_b) && (alert("Only no. allowed") || true)))
+
     do {
         var side_c = +prompt("Enter side c of Triangle", 1);
-    } while (((side_c < 1) && (alert("only positive no. allowed") || true)) 
-    || (isNaN(side_c) && (alert("Only no. allowed") || true)))
+    } while (((side_c < 1) && (alert("only positive no. allowed") || true))
+        || (isNaN(side_c) && (alert("Only no. allowed") || true)))
 
     let newTriangle = new Triangle(side_a, side_b, side_c);
     let sub_choice = askChoice();
