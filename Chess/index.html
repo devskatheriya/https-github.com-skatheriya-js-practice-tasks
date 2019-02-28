@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <script src="demo.js"></script>
+
     <style>
         table {
             border-collapse: collapse;
@@ -13,8 +13,8 @@
         }
 
         table td {
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
         }
 
         table.chessboard td:hover {
@@ -23,13 +23,14 @@
         }
 
         .black {
-            background-color: rgba(0, 0, 0, 0.561);
+            background-color: rgba(0, 0, 0, 0.493);
         }
 
         .white {
-            background-color: white;
+            background-color: rgb(241, 232, 206);
         }
     </style>
+    <script src="board.js"></script>
 </head>
 
 <body>
@@ -63,7 +64,7 @@
                     cell.setAttribute("xPosition", i);
                     cell.setAttribute("yPosition", j);
                     cell.setAttribute("id", "elem");
-                    cell.setAttribute("onclick", '');
+                    cell.setAttribute("onload", '');
                 }
 
             }
@@ -76,10 +77,14 @@
             // console.log(event.target);
             var x_position = event.target.getAttribute('xposition');
             var y_position = event.target.getAttribute('yposition');
-            console.log(x_position,y_position);
-            alert("You Clicked on :- "+x_position+" , "+y_position);
-
+            // console.log(x_position, y_position);
+            var td = event.target.closest('td');
+            // console.log(td);
+            createChild(td,x_position,y_position);
+            
         };
+        setChessBoard();
+        printChessBoard();
     </script>
 
 </body>
