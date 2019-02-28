@@ -13,7 +13,7 @@
                     if (checkMonth() && checkDate()) {
                         let baseDate = new Date("01/01/1970");
                         let newDate = new Date(month + "/" + date + "/" + year);
-                        alert(newDate.getFullYear());
+                        // alert(newDate.getFullYear());
 
                         var timeDifference = Math.abs(newDate.getTime() - baseDate.getTime());
                         var dayNo = ((timeDifference / (1000 * 24 * 60 * 60)) % 7);

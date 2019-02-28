@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <title>HttpRequest in JavaScript</title>
+    <script>
+        const xhr = new XMLHttpRequest();
+        const url = 'http://stagecore.mentorz.com:8080/mentorz/api/v3/admin/values/rank';
+        xhr.open("GET", url);
+        xhr.send();
+
+        xhr.onload = function () {
+            console.log(xhr.status)
+
+            var result = JSON.parse(xhr.responseText);
+
+            for (let i = 0; i < result.length; i++)
+                console.log(result[i].name + ' => ' + result[i].rank_count);
+        }
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

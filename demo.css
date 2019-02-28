@@ -1,0 +1,25 @@
+table {
+    border-collapse: collapse;
+}
+
+table {
+    border: 1px solid black;
+}
+
+table td {
+    width: 60px;
+    height: 60px;
+}
+
+table.chessboard td:hover {
+    background-color: rgba(255, 0, 0, 0.507);
+    border: 50%;
+}
+
+.black {
+    background-color: rgba(0, 0, 0, 0.561);
+}
+
+.white {
+    background-color: white;
+}
