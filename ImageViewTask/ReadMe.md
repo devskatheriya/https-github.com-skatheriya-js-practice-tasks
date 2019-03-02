@@ -20,3 +20,6 @@ Means, images in the view part of the window are loaded its original image,
 else remaining pending images have loaded only with thumbnail.
 As User scroll down, than images in view part loaded its image thumbnail to proper image.
 
+Pull:- welcome to all pull request.
+
+Author:- Sachin Katheriya
