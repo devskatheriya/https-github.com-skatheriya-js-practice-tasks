@@ -1,5 +1,8 @@
 Project:- Image Task View
 
+Installation & Run:- You have to pull all files in folder than run .html extension file in browser.
+You will get its view and to operate on that.
+
 Description :-
 In this, onclick button (Get Data) we will get Json data from following url
 url:- https://jsonplaceholder.typicode.com/photosimage 
