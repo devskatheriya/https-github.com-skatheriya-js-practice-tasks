@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Image View</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css">
+    <script src="main.js"></script>
+    <style>
+        #collectionDiv {
+            width: 400px;
+            height: 500px;
+            border: 5px solid #E8C48F;
+            padding: 5px;
+            overflow: auto;
+        }
+
+        div {
+            margin: 1px
+        }
+        ul{
+            list-style: none;
+        }
+        li img{
+            width: 20%;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="getImages()">Get Images</button>
+    <br><br>
+    <div id="collectionDiv">
+        <div style="width: 100%;height: 100px; background-color: blue">
+            <ul id="itemImageDetails">
+                <li id="imageItem">
+                    <img src="facebook-icon.jpg" id="image">
+                </li>
+            </ul>
+        </div>
+        <div style="width: 100%;height: 100px; background-color: red"></div>
+
+</body>
+
+</html>
