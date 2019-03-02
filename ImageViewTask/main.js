@@ -21,7 +21,7 @@ function storeDataInLocal(newdata) {
 function loadImages() {
 
     var viewDiv = document.getElementById('collectionDiv');
-    for (let i = 0; i <= 50; i++) {
+    for (let i = 0; i <= 100; i++) {
         var images = "image" + i;
         let { albumId, id, title, url, thumbnailUrl } = JSON.parse(sessionStorage.getItem(images));
 
@@ -36,7 +36,7 @@ function loadImages() {
         image.setAttribute('src', thumbnailUrl);
         image.setAttribute('class', 'thumbnail');
         image.setAttribute('id', 'thumbnail');
-        image.setAttribute('imageid',id);
+        image.setAttribute('imageid', id);
         imageDiv.appendChild(image);
 
         let textDiv = document.createElement('div');
@@ -61,28 +61,26 @@ function loadImages() {
 }
 
 function run() {
-    let images = document.querySelectorAll('.thumbnail');
-    let main = document.getElementById('collectionDiv');
+
     function lazyload() {
+        let images = document.querySelectorAll('.thumbnail');
+        let main = document.getElementById('collectionDiv');
         console.log("hello from lazyload")
         images.forEach(image => {
-            if (image.offsetTop <= main.offsetHeight+main.offsetTop + 500) {
+            console.log(image.offsetTop, main.offsetHeight, main.offsetTop);
+            console.log("=>",main.scrollTop);
+            if ( (image.offsetTop <=  main.offsetTop + main.scrollTop + 550) && (image.offsetTop >=  main.offsetTop+main.scrollTop-image.clientHeight ) ) {
                 image.parentElement.nextSibling.setAttribute('class', 'viewRight');
                 image.parentElement.setAttribute('class', 'viewLeft');
-                let imageid=image.getAttribute('imageid');
-                let {url,...a} =JSON.parse(sessionStorage.getItem('image'+(imageid-1)));
-                image.setAttribute('src',url);
+                let imageid = image.getAttribute('imageid');
+                let { url, ...a } = JSON.parse(sessionStorage.getItem('image' + (imageid - 1)));
+                image.setAttribute('src', url);
                 image.setAttribute('class', 'proper-img');
             }
         })
     }
     lazyload();
-   document.getElementById('collectionDiv').addEventListener('scroll',lazyload);
+    document.getElementById('collectionDiv').addEventListener('scroll', function () {
+        setTimeout(() => lazyload(), 1000)
+    });
 }
-function loadScript(src) {
-    let script = document.createElement('script');
-    script.src = src;
-    // script.onload = () => callback(script);
-    document.head.append(script);
-}
-// loadScript('new.js')
