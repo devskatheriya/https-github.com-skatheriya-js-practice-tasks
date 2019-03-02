@@ -54,10 +54,6 @@ hr {
     height: 100%;
 }
 
-div.collectionDiv div:hover {
-    background-color: blue;
-}
-
 img {
     height: 100%;
     width: auto;

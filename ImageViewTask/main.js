@@ -1,31 +1,39 @@
 function getImages() {
+    // let httpRequest = new Sequest('https://jsonplaceholder.typicode.com/photos'); // Set URL for Request
+    // httpRequest.callAPI(); // Calling API
+    // let jsonData = httpRequest.getAPIData(); // Get Response Data from URL(API) , in JSON format
+    // console.log(jsonData);
     const xhr = new XMLHttpRequest();
     const url = "https://jsonplaceholder.typicode.com/photos";
     xhr.open('GET', url, true);
     xhr.send();
     xhr.onload = () => {
-        var newdata = JSON.parse(xhr.responseText);
-        console.log(newdata.length)
-        storeDataInLocal(newdata);
+        var jsonData =JSON.parse(xhr.responseText);
+        // console.log(xhr.responseText);
+        storeDataInSessionStorage(jsonData); // call localStorage to store data
+
+    }
+    
+    run();
+}
+
+function storeDataInSessionStorage(newdata) {
+    console.log(newdata.length);
+    
+    for (i = 0; i < newdata.length; i++) { // each image details is a object
+        var image = "image"; // key for localStorage
+        image = image + i; // e.g. image0, image1, image2, . . . .
+        sessionStorage.setItem(image, JSON.stringify(newdata[i])); // store JSON object as string
     }
 }
 
-function storeDataInLocal(newdata) {
-    for (i = 0; i < newdata.length; i++) {
-        var image = "image";
-        image = image + i;
-        sessionStorage.setItem(image, JSON.stringify(newdata[i]));
-    }
-    console.log("done");
-}
-function loadImages() {
-
+function loadImages(firstImageIndex) {
+    var lastImageIndex = firstImageIndex + 20;
     var viewDiv = document.getElementById('collectionDiv');
-    for (let i = 0; i <= 100; i++) {
-        var images = "image" + i;
+    for (let i = firstImageIndex; i < lastImageIndex; i++) {
+        var images = "image" + i;console.log(images);
+        
         let { albumId, id, title, url, thumbnailUrl } = JSON.parse(sessionStorage.getItem(images));
-
-
         var row = document.createElement('div');
         row.setAttribute('class', 'row');
         row.setAttribute('id', 'row');
@@ -57,30 +65,54 @@ function loadImages() {
         viewDiv.appendChild(hr);
 
     }
-    run();
+    return lastImageIndex;
 }
 
 function run() {
+    var lastImageIndex = 0;
+    let main = document.getElementById('collectionDiv');
 
     function lazyload() {
-        let images = document.querySelectorAll('.thumbnail');
-        let main = document.getElementById('collectionDiv');
-        console.log("hello from lazyload")
-        images.forEach(image => {
-            console.log(image.offsetTop, main.offsetHeight, main.offsetTop);
-            console.log("=>",main.scrollTop);
-            if ( (image.offsetTop <=  main.offsetTop + main.scrollTop + 550) && (image.offsetTop >=  main.offsetTop+main.scrollTop-image.clientHeight ) ) {
-                image.parentElement.nextSibling.setAttribute('class', 'viewRight');
-                image.parentElement.setAttribute('class', 'viewLeft');
-                let imageid = image.getAttribute('imageid');
-                let { url, ...a } = JSON.parse(sessionStorage.getItem('image' + (imageid - 1)));
-                image.setAttribute('src', url);
-                image.setAttribute('class', 'proper-img');
+        if (main == null) {
+            lastImageIndex = loadImages(lastImageIndex);
+        } else {
+            let images = document.querySelectorAll('.thumbnail');
+            let scrollHeight = main.scrollHeight;
+            let totalHeight = (main.scrollTop + main.offsetTop + 700);
+            console.log(scrollHeight, totalHeight);
+            console.log(scrollHeight < totalHeight);
+            if (scrollHeight < totalHeight) {
+                console.log('condition in more load');
+                lastImageIndex = loadImages(lastImageIndex);
+            } else {
+                console.log('condition in else');
+
+                images.forEach(image => {
+                    if ((image.offsetTop <= main.offsetTop + main.scrollTop + 550)
+                        && (image.offsetTop >= main.offsetTop + main.scrollTop - image.clientHeight)) {
+                        image.parentElement.nextSibling.setAttribute('class', 'viewRight');
+                        image.parentElement.setAttribute('class', 'viewLeft');
+                        let imageid = image.getAttribute('imageid');
+                        let { url } = JSON.parse(sessionStorage.getItem('image' + (imageid - 1)));
+                        image.setAttribute('src', url);
+                        image.setAttribute('class', 'proper-img');
+                    }
+
+                })
             }
-        })
+        }
     }
     lazyload();
+    // document.getElementById('collectionDiv').addEventListener('change', function () {
+    //     setTimeout(() => lazyload(), 1000)
+    // });
+    lazyload();
+
     document.getElementById('collectionDiv').addEventListener('scroll', function () {
         setTimeout(() => lazyload(), 1000)
     });
+
 }
+// window.addEventListener('load', function () {
+//     setTimeout(() => run(), 1000)
+// });
