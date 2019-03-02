@@ -1,86 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Demo Test</title>
     <script src="demo.js"></script>
-    <style>
-        table {
-            border-collapse: collapse;
-        }
-
-        table {
-            border: 1px solid black;
-        }
-
-        table td {
-            width: 60px;
-            height: 60px;
-        }
-
-        table.chessboard td:hover {
-            background-color: rgba(255, 0, 0, 0.507);
-            border: 50%;
-        }
-
-        .black {
-            background-color: rgba(0, 0, 0, 0.561);
-        }
-
-        .white {
-            background-color: white;
-        }
-    </style>
 </head>
 
 <body>
 
+    Username : <input type="text" id="uname">
+    <br><br>
+    Password : <input type="text" name="" id="password">
+    <br><br>
+    <button type="submit" onclick="getFromData()">Submit</button>
 
-    <table id="chessboard" class="chessboard">
+    <table id="table" border="solid black 1px">
 
     </table>
-    <br>
-
-
-
-    <script>
-        function myFunction() {
-            var flag = true;
-            var chess = document.getElementById("chessboard");
-            for (let i = 1; i <= 8; i++) {
-                var row = chess.insertRow();
-                for (let j = 1; j <= 8; j++) {
-                    var cell = row.insertCell(-1);
-                    if (i % 2 == 0 && j % 2 != 0) {
-                        cell.classList.add("black");
-
-                        flag = false;
-                    } else if (i % 2 != 0 && j % 2 == 0) {
-                        cell.classList.add("black");
-                        flag = true;
-                    } else {
-                        cell.classList.add("white");
-                    }
-                    cell.setAttribute("xPosition", i);
-                    cell.setAttribute("yPosition", j);
-                    cell.setAttribute("id", "elem");
-                    cell.setAttribute("onclick", '');
-                }
-
-            }
-
-        }
-        myFunction();
-
-        var elem = document.getElementById('chessboard');
-        elem.onclick = function () {
-            // console.log(event.target);
-            var x_position = event.target.getAttribute('xposition');
-            var y_position = event.target.getAttribute('yposition');
-            console.log(x_position,y_position);
-            printLocation(x_position,y_position);
-        };
-    </script>
-
 </body>
 
 </html>

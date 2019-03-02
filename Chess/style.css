@@ -1,0 +1,27 @@
+table {
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+table td {
+    width: 70px;
+    height: 70px;
+}
+
+table.chessboard td:hover {
+    background: radial-gradient( #cacef6,#e95a5a);
+    
+}
+
+.black {
+    background-color: rgba(0, 0, 0, 0.493);
+}
+
+.white {
+    background-color: rgb(241, 232, 206);
+}
+.possiblemove{
+    background: radial-gradient( #cacef6,#eb1d1d);
+}
+.selected{
+    background: radial-gradient( #cacef6,#e95a5a);
+}
