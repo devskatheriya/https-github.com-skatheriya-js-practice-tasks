@@ -30,19 +30,19 @@ hr {
 }
 
 
-.colright {
+.detailsDiv {
     margin-left: 120px;
-    width: 265px;
+    width: 245px;
     height: 100%;
 }
 
-.colleft {
+.imageDiv {
     float: left;
-    width: 120px;
+    width: 140px;
     height: 100%;
 }
 
-.viewRight {
+/* .viewRight {
     margin-left: 120px;
     width: 250px;
     height: 100%;
@@ -52,7 +52,7 @@ hr {
     float: left;
     width: 135px;
     height: 100%;
-}
+} */
 
 img {
     height: 100%;
