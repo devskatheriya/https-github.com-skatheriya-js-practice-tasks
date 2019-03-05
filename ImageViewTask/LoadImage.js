@@ -12,7 +12,7 @@ class LoadImage {
             var row = document.createElement('div');
             row.setAttribute('class', 'row');
             row.setAttribute('id', 'row');
-            row.setAttribute('onclick', "viewImage(this)");
+            row.setAttribute('onclick', 'viewImage(this)');
             let imageDiv = document.createElement('div');
             imageDiv.setAttribute('class', 'imageDiv');
             imageDiv.setAttribute('id', 'imageDiv');
@@ -37,6 +37,9 @@ class LoadImage {
             row.appendChild(imageDiv);
             row.appendChild(textDiv);
             var hr = document.createElement('hr');
+            // let link = document.createElement('a');
+            // link.setAttribute('href',url+'/'+id);
+            // link.appendChild(row);
             viewDiv.appendChild(row);
             viewDiv.appendChild(hr);
 

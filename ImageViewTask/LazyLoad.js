@@ -8,19 +8,13 @@ class LazyLoad {
         if (this.lastImageIndex == 0) {
             this.lastImageIndex = this.loadimage.loadImages(this.lastImageIndex);
             this.openImage();
+        } else if ((this.main.scrollHeight) < (this.main.scrollTop + this.main.offsetTop + 700)) {
+            this.lastImageIndex = this.loadimage.loadImages(this.lastImageIndex);
         } else {
-
-            let scrollHeight = this.main.scrollHeight;
-            let totalHeight = (this.main.scrollTop + this.main.offsetTop + 700);
-            if (scrollHeight < totalHeight) {
-                this.lastImageIndex = this.loadimage.loadImages(this.lastImageIndex);
-            } else {
-                this.openImage();
-            }
-
+            this.openImage();
         }
-    }
 
+    }
     openImage() {
         let images = document.querySelectorAll('.thumbnail');
         images.forEach(image => {
@@ -31,8 +25,6 @@ class LazyLoad {
                 image.setAttribute('src', url);
                 image.setAttribute('class', 'proper-img');
             }
-
-
         })
     }
 }

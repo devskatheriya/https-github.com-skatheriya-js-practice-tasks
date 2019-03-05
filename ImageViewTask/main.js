@@ -15,3 +15,13 @@ function getImages() {
     })
 }
 
+function viewImage(target) {
+    let image = target.children[0].children[0];
+    sessionStorage.setItem('albumId',image.getAttribute('albumId'));
+    sessionStorage.setItem('title',image.getAttribute('title'));
+    sessionStorage.setItem('url',image.getAttribute('url'));
+    sessionStorage.setItem('imageId',image.getAttribute('imageId'));
+
+    window.location='detailsPage.html';
+
+}
